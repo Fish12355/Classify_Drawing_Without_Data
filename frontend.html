@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Classify Drawing - AI</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.18.0/dist/tf.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: white;
+            color: black;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        #wrapper {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        #drawAndChart {
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+            border: 2px solid black;
+            padding: 80px;
+        }
+
+        #canvas {
+            border: 2px solid black;
+            background: white;
+        }
+
+        #buttons {
+            margin-top: 10px;
+            text-align: left;
+        }
+
+        button {
+            padding: 5px 10px;
+            margin-right: 42px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        #chartContainer {
+            width: 300px;
+            min-height: 260px;
+            display: flex;
+            align-items: center;
+
+        }
+
+        /* Hidden until drawn */
+        #pieChart, #legend {
+            visibility: hidden;
+        }
+
+        /* Legend spacing FIXED */
+        #legend {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            min-width: 150px;
+        }
+
+        #legend div {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 15px;
+            margin-top: 10px;
+        }
+
+        .colorBox {
+            width: 14px;
+            height: 14px;
+            margin-left: 5px;
+            border: solid 1px black;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>Drawing classificator!</h1>
+
+<div id="wrapper">
+    <div id="drawAndChart">
+        <div>
+            <h2>Drawing:</h2>
+            <canvas id="canvas" width="260" height="260"></canvas>
+            <div id="buttons">
+                <button id="undoBtn">Undo</button>
+                <button id="redoBtn">Redo</button>
+                <button id="clearBtn">Clear</button>
+            </div>
+        </div>
+
+        <div id="chartContainer">
+            <div>
+                <h2>Classifications:</h2>
+                <canvas id="pieChart" width="220" height="220"
+                        style="border:1px solid black;"></canvas>
+
+                <div id="legend"></div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script src="draw.js"></script>
+</body>
+
+</html>
